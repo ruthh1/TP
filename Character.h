@@ -4,41 +4,33 @@
 #include <string>
 #include <iostream>
 
-class Character{
+class Character
+{
+public:
+	float speed_;
+	float max_speed_;
 
-	// Attributs
-	public:
-		float speed_;
-		float max_speed_;
+public:
+	Character();
 
+	void Accelerate();
+	void Break();
 
-	// Fonctions
-	public:
-		// Constructeur :
-		Character();
+	inline float speed() const
+	{
+		return speed_;
+	};
+	inline float maxSpeed() const
+	{
+		return max_speed_;
+	};
 
-		// Méthodes:
-		void Accelerate();
-		void Break();
+	~Character();
 
-		inline float speed() const{
-			return speed_;
-		};
-
-		inline float maxSpeed() const{
-			return max_speed_;
-		};
-
-		// Destructeur :
-		~Character();
-
-		// virtual function member :
-		virtual std::string WhatAmI() const = 0;
-		// At compile time, it now checks if there are child classes with this function defined and not virtual
-
+	virtual std::string WhatAmI() const = 0;
+	// At compile time, it now checks if there are child classes with this function defined and not virtual
 };
 
 #endif 
-
 
 

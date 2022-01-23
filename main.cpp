@@ -1,24 +1,26 @@
-#include "Character.h"
 #include <iostream>
+#include <cstdlib> 
+#include <ctime> 
 #include <string>
+#include <vector>
+#include "Character.h"
+#include "Mario.h"
+#include "Yoshi.h"
 
+int main()
+{
+	srand((unsigned int)time(0));
 
-int main(){
-	
-	Character* a;
-	std::cout << "My first character " << a << " with speed " << a->speed() << std::endl;
-	// pour le détruire : delete a;
+	std::vector<Character*> characters;
 
-	a->Accelerate();
-	std::cout << "My first character " << a << " with new speed after increasing : " << a->speed() << std::endl;
+	for (int i = 0; i < 5; i++)
+	{
+		characters.push_back(new Mario());
+		characters.push_back(new Yoshi(rand() % 10));
+	}
 
-	a->Break();
-	std::cout << "My first character " << a << " with new speed after decreasing : " << a->speed() << std::endl;
-
-   	a->WhatAmI();
-   	
-
-
-
+	for (Character* c: characters)
+	{
+		std::cout << "Hey, i'm " << c->WhatAmI() << std::endl;
+	}
 }
-

@@ -1,27 +1,27 @@
 #include "Character.h"
 
 // Constructeur :
-Character::Character(){
+Character::Character()
+{
 	speed_ = 0;
 	max_speed_ = 10;
 };
 
-// MÃ©thodes :
-void Character::Accelerate(){
-	if(speed_ < max_speed_){
-		speed_ += 1;
-	}
+// Méthodes :
+void Character::Accelerate()
+{
+	if (speed_ < max_speed_)
+		speed_++;
 };
 
-void Character::Break(){
-	if(speed_ > 0)
-	{
-		speed_ -= 1;
-	}
+void Character::Break()
+{
+	if (speed_ > 0)
+		speed_--;
 };
 
 // Destructeur :
-Character::~Character(){
+Character::~Character()
+{
 	std::cout << "The character " << this << " has been destroyed." << std::endl;
 };
-
